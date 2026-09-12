@@ -298,32 +298,7 @@ def run_base_xgboost_model(train, test, n_test_steps):
         return None
 
 ## 🌲 3. XGBoost Model (Enhanced)
-def run_enhanced_xgboost_model(train, test, n_test_steps):
-    """XGBoost with Lag, Time, Fourier, and Target Encoding features."""
-    print("\n⏳ Running 3. XGBoost Model (Enhanced)...")
-    try:
-        LAG = 12
-        full_data = pd.concat([train, test])
-        features_df = create_enhanced_features(full_data, lag=LAG, fourier_k=2)
 
-        X_full = features_df.drop('y', axis=1)
-        y_full = features_df['y']
-
-        X_train = X_full.loc[:test.index[0]].iloc[:-1]
-        y_train = y_full.loc[X_train.index]
-        X_test = X_full.loc[test.index]
-
-        if X_train.empty or X_test.empty or len(X_test) != n_test_steps: return None
-
-        model = xgb.XGBRegressor(objective='reg:squarederror', n_estimators=100, random_state=42, learning_rate=0.05)
-        model.fit(X_train, y_train)
-        forecast_values = model.predict(X_test)
-
-        forecast = pd.Series(forecast_values, index=test.index)
-        return forecast
-    except Exception as e:
-        print(f"❌ Enhanced XGBoost model failed: {e}")
-        return None
 
 ## 🧠 4. LSTM Model (Base)
 def run_lstm_model(train, test, n_test_steps):
