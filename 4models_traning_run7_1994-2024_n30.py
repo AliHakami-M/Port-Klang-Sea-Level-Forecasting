@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Sea Level Forecasting with 5 Models (2021-2024)"""
+"""Sea Level Forecasting with 4 Models (2021-2024)"""
 
 # --- Explicit Library Imports for Robustness ---
 import numpy as np
@@ -27,7 +27,7 @@ warnings.filterwarnings('ignore')
 
 # --- CONFIGURATION (VERIFY THESE) ---
 # VERIFY THIS PATH: Must be a RAW string (r"...") for Windows
-FILE_PATH = r"C:\Users\mmeetei\Desktop\Python_codes_PhD\sea_level_research\all_sheet_2.xlsx"
+FILE_PATH = r"C:all_sheet_2.xlsx"
 
 LOCATION_TO_FORECAST = 'Klang'
 N_TEST_STEPS = 12 # Forecasting all 12 months of the test year
