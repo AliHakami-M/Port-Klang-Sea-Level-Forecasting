@@ -8,7 +8,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 # --- CONFIGURATION ---
-FILE_PATH = r"C:\Users\mmeetei\Desktop\Python_codes_PhD\sea_level_research\all_sheet_2.xlsx"
+FILE_PATH = r"C:all_sheet_2.xlsx"
 LOCATION_TO_FORECAST = 'Klang'
 
 def plot_return_levels():
